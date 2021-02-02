@@ -5,68 +5,68 @@ import Digit from '.';
 
 describe('Digit component', () => {
     it('should display 0 by default', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit />
         );
 
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('0')).toBeInTheDocument();
     });
 
     it('should display the single-digit number passed in state', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={3} />
         );
 
-        expect(getByText('3')).toBeTruthy();
+        expect(queryByText('3')).toBeInTheDocument();
     });
 
     it('should not display the mulitple-digit numbers passed in state but default to 0', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={27} />
         );
 
-        expect(getByText('27')).toBeFalsy();
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('27')).not.toBeInTheDocument();
+        expect(queryByText('0')).toBeInTheDocument();
     });
 
     it('should not display letters passed in state and default to 0', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={'a'} />
         );
 
-        expect(getByText('a')).toBeFalsy();
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('a')).not.toBeInTheDocument();
+        expect(queryByText('0')).toBeInTheDocument();
     });
     it('should not display special characters passed in state and default to 0', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={'!'} />
         );
 
-        expect(getByText('!')).toBeFalsy();
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('!')).not.toBeInTheDocument();
+        expect(queryByText('0')).toBeInTheDocument();
     });
 
     it('should handle empty values passed in state and default to 0', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={''} />
         );
 
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('0')).toBeInTheDocument();
     });
 
     it('should handle null values passed in state and default to 0', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={null} />
         );
 
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('0')).toBeInTheDocument();
     });
 
     it('should handle undefined values passed in state and default to 0', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Digit value={undefined} />
         );
 
-        expect(getByText('0')).toBeTruthy();
+        expect(queryByText('0')).toBeInTheDocument();
     });
 });

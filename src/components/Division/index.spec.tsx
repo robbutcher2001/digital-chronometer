@@ -1,14 +1,12 @@
-import React from 'react';
-import { render } from '@testing-library/react'
+import React from "react";
+import { render } from "@testing-library/react";
 
-import Division from '.';
+import Division from ".";
 
-describe('Division component', () => {
-    it('should display division seperator', () => {
-        const { queryByText } = render(
-            <Division />
-        );
+describe("Division component", () => {
+  it("should display division seperator", () => {
+    const { queryByText } = render(<Division />);
 
-        expect(queryByText(':')).toBeInTheDocument();
-    });
+    expect(queryByText(":")).toBeInTheDocument();
+  });
 });

@@ -1,10 +1,13 @@
-import React from 'react';
-import './index.css';
+import { FC } from "react";
+import Division from "../../components/Division";
+import "./index.css";
 
-function Chronometer() {
+const Chronometer: FC = () => {
   return (
-    <div>No impl</div>
+    <>
+      <Division />
+    </>
   );
-}
+};
 
 export default Chronometer;

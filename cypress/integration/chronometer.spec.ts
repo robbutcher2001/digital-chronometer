@@ -23,7 +23,7 @@ describe('Digital Chronometer', () => {
       .and('have.text', '0');
   })
 
-  it('should allow setting new timer', () => {
+  it('should allow setting new time', () => {
     cy.visit('http://localhost:3000');
 
     cy.get('[data-testid="chronometer-edit"]')
@@ -56,10 +56,22 @@ describe('Digital Chronometer', () => {
     cy.get('[data-testid="chronometer-edit"]')
       .type('2');
 
+    cy.get('[data-testid="stop"]')
+      .should('be.disabled');
+
     cy.get('[data-testid="start"]')
+      .should('be.enabled')
       .click();
 
-    cy.wait(3000);
+    cy.wait(500);
+
+    cy.get('[data-testid="stop"]')
+      .should('be.enabled');
+
+    cy.get('[data-testid="start"]')
+      .should('be.disabled');
+
+    cy.wait(2500);
 
     cy.get('[data-testid="chronometer-h"]')
       .should('be.visible')
@@ -92,10 +104,20 @@ describe('Digital Chronometer', () => {
       .should('be.visible')
       .and('have.text', '1');
 
+    cy.get('[data-testid="stop"]')
+      .should('be.disabled');
+
     cy.get('[data-testid="start"]')
+      .should('be.enabled')
       .click();
 
     cy.wait(1000);
+
+    cy.get('[data-testid="stop"]')
+      .should('be.enabled');
+
+    cy.get('[data-testid="start"]')
+      .should('be.disabled');
 
     cy.get('[data-testid="stop"]')
       .click();

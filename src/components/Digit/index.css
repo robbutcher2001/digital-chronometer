@@ -1,0 +1,6 @@
+.digit {
+  font-size: var(--large-font);
+  display: inline-block;
+  min-width: calc(var(--large-font) / 2);
+  text-align: right;
+}

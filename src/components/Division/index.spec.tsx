@@ -5,10 +5,10 @@ import Division from '.';
 
 describe('Division component', () => {
     it('should display division seperator', () => {
-        const { getByText } = render(
+        const { queryByText } = render(
             <Division />
         );
 
-        expect(getByText(':')).toBeTruthy();
+        expect(queryByText(':')).toBeInTheDocument();
     });
 });

@@ -1,3 +1,5 @@
-import React from 'react';
+import { FC } from "react";
 
-export default () => <div />;
+const Division: FC = () => <div>:</div>;
+
+export default Division;

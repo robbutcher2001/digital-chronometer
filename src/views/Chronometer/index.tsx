@@ -1,7 +1,6 @@
 import { FC, useState, MouseEvent } from "react";
-import Digit from "../../components/Digit";
-import Division from "../../components/Division";
 import SetTime from "../../components/SetTime";
+import Timer from "../../components/Timer";
 
 const Chronometer: FC = () => {
   const [editMode, setEditMode] = useState<boolean>(false);
@@ -37,14 +36,7 @@ const Chronometer: FC = () => {
           />
         </div>
       ) : (
-        <div onClick={enableEditMode}>
-          <Digit value={"0"} data-testid="chronometer-m" />
-          <Digit value={"0"} data-testid="chronometer-mm" />
-          <Division data-testid="chronometer-div" />
-          <Digit value={"0"} data-testid="chronometer-s" />
-          <Digit value={"4"} data-testid="chronometer-ss" />
-          {console.log("seconds ahead", secondsAhead)}
-        </div>
+        <Timer />
       )}
     </div>
   );

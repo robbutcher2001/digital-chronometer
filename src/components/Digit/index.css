@@ -3,4 +3,7 @@
   display: inline-block;
   min-width: calc(var(--large-font) / 2);
   text-align: right;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }

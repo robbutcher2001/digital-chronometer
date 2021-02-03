@@ -1,4 +1,7 @@
 .division {
   font-size: var(--large-font);
   display: inline-block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }

@@ -1,52 +1,68 @@
-import { FC, ChangeEvent, useEffect } from "react";
+import { FC, ChangeEvent, FormEvent } from "react";
 
 type SetTimeProps = {
-  value?: string;
-  updateState: (value: string) => void;
+  time?: string;
+  updateUserInput: (value: string) => void;
+  onSubmit: () => void;
 };
 
-const SetTime: FC<SetTimeProps> = ({ value, updateState }) => {
-  useEffect(() => {
-    if (!value) {
-      updateState(": 0");
-    }
-  }, [value, updateState]);
-
+const SetTime: FC<SetTimeProps> = ({
+  time = ":  ",
+  updateUserInput,
+  onSubmit,
+}) => {
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    const regEx = new RegExp(/^\d{1,4}$/);
-    const time = regEx.exec(event.currentTarget.value.replace(":", ""));
 
-    if (time && time[0]) {
-      const digits = time[0];
-      switch (digits.length) {
-        case 1:
-          updateState(`: ${digits}`);
-          break;
-        case 2:
-          updateState(`:${digits}`);
-          break;
-        case 3:
-          updateState(`${digits.substring(0, 1)}:${digits.substring(1)}`);
-          break;
-        case 4:
-          updateState(`${digits.substring(0, 2)}:${digits.substring(2)}`);
-          break;
-        default:
+    const userInput = event.currentTarget.value
+      .replace(/:/g, "")
+      .replace(/ /g, "");
+
+    if (!userInput) {
+      updateUserInput(`:  `);
+    } else {
+      const regEx = new RegExp(/^\d{1,4}$/);
+      const time = regEx.exec(userInput);
+
+      if (time && time[0]) {
+        const digits = time[0];
+        switch (digits.length) {
+          case 1:
+            updateUserInput(`: ${digits}`);
+            break;
+          case 2:
+            updateUserInput(`:${digits}`);
+            break;
+          case 3:
+            updateUserInput(`${digits.substring(0, 1)}:${digits.substring(1)}`);
+            break;
+          case 4:
+            updateUserInput(`${digits.substring(0, 2)}:${digits.substring(2)}`);
+            break;
+          default:
+        }
       }
     }
   };
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit();
+  };
+
   return (
-    <label htmlFor="settime" aria-label="Set the time to countdown from">
-      <input
-        id="settime"
-        name="settime"
-        type="text"
-        value={value}
-        onChange={onChange}
-      />
-    </label>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="settime" aria-label="Set the time to countdown from">
+        <input
+          id="settime"
+          name="settime"
+          type="text"
+          value={time}
+          onChange={onChange}
+          autoFocus
+        />
+      </label>
+    </form>
   );
 };
 

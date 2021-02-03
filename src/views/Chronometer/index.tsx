@@ -36,7 +36,9 @@ const Chronometer: FC = () => {
           />
         </div>
       ) : (
-        <Timer />
+        <div onClick={enableEditMode}>
+          <Timer seconds={secondsAhead} running={!editMode} />
+        </div>
       )}
     </div>
   );

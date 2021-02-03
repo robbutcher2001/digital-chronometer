@@ -27,6 +27,7 @@ const parseSecondsToDisplay = (seconds: number): string[] => {
 const Timer: FC<TimerProps> = ({ seconds, running }) => {
   const [display, setDisplay] = useState<string[]>(["0", "0", "0", "0"]);
   const [secondsLeft, setSecondsLeft] = useState<number>(seconds);
+  const [shake, setShake] = useState<boolean>(false);
 
   useEffect(() => {
     setDisplay(parseSecondsToDisplay(seconds));
@@ -37,8 +38,12 @@ const Timer: FC<TimerProps> = ({ seconds, running }) => {
 
     if (running && secondsLeft > 0) {
       timeoutId = setTimeout(() => {
-        setSecondsLeft(secondsLeft - 1);
-        setDisplay(parseSecondsToDisplay(secondsLeft - 1));
+        const newSeconds = secondsLeft - 1;
+        setSecondsLeft(newSeconds);
+        setDisplay(parseSecondsToDisplay(newSeconds));
+        if (newSeconds === 0) {
+          setShake(true);
+        }
       }, 1000);
     }
 
@@ -47,11 +52,27 @@ const Timer: FC<TimerProps> = ({ seconds, running }) => {
 
   return (
     <>
-      <Digit value={display[0]} data-testid="chronometer-m" />
-      <Digit value={display[1]} data-testid="chronometer-mm" />
+      <Digit
+        value={display[0]}
+        className={shake ? "shake" : undefined}
+        data-testid="chronometer-m"
+      />
+      <Digit
+        value={display[1]}
+        className={shake ? "shake" : undefined}
+        data-testid="chronometer-mm"
+      />
       <Division data-testid="chronometer-div" />
-      <Digit value={display[2]} data-testid="chronometer-s" />
-      <Digit value={display[3]} data-testid="chronometer-ss" />
+      <Digit
+        value={display[2]}
+        className={shake ? "shake" : undefined}
+        data-testid="chronometer-s"
+      />
+      <Digit
+        value={display[3]}
+        className={shake ? "shake" : undefined}
+        data-testid="chronometer-ss"
+      />
     </>
   );
 };

@@ -1,6 +1,8 @@
 import React, { FC } from "react";
+import "./index.css";
 
-type StylingProps = {
+type InternalProps = {
+  label: string;
   className: string;
 };
 
@@ -9,14 +11,9 @@ type ConfigurableButtonProps = {
   disabled?: boolean;
 };
 
-type ButtonProps = StylingProps & ConfigurableButtonProps;
+type ButtonProps = InternalProps & ConfigurableButtonProps;
 
-const Button: FC<ButtonProps> = ({
-  className,
-  callback,
-  disabled,
-  children,
-}) => {
+const Button: FC<ButtonProps> = ({ label, className, callback, disabled }) => {
   return (
     <button
       type="button"
@@ -24,18 +21,14 @@ const Button: FC<ButtonProps> = ({
       onClick={callback}
       disabled={disabled}
     >
-      {children}
+      <div aria-label={label}></div>
     </button>
   );
 };
 
 export const StartButton = (props: ConfigurableButtonProps) => (
-  <Button className="start" {...props}>
-    Start
-  </Button>
+  <Button label="Start" className="start" {...props} />
 );
 export const StopButton = (props: ConfigurableButtonProps) => (
-  <Button className="stop" {...props}>
-    Stop
-  </Button>
+  <Button label="Stop" className="stop" {...props} />
 );

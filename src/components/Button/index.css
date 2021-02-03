@@ -1,0 +1,54 @@
+button {
+  position: relative;
+  border: none;
+  border-radius: 5px;
+  margin: 1.5rem 2rem;
+  padding: 0 70px;
+  height: 50px;
+  box-shadow: 4px 5px 2px 0px #666;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+button:not(:disabled):active {
+  box-shadow: 2px 0 2px 0 #666;
+  transform: translateY(5px);
+}
+
+button:disabled {
+  cursor: auto;
+  box-shadow: 2px 2px 2px 0 #666;
+  opacity: 0.1;
+  transform: translateY(3px);
+}
+
+button.start {
+  background-color: #82b74b;
+}
+
+button.start div {
+  margin: 0;
+  position: absolute;
+  top: 8px;
+  border: 18px solid transparent;
+  border-left-color: #fff;
+  transform: scale(1.5, 0.8);
+}
+
+button.stop {
+  background-color: #c94c4c;
+}
+
+button.stop div {
+  margin: 0;
+  position: absolute;
+  top: 14px;
+  left: 58px;
+  border: 12px solid #fff;
+}

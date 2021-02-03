@@ -5,7 +5,7 @@ import { StartButton, StopButton } from ".";
 
 describe("StartButton component", () => {
   it("should display correct text", () => {
-    const { getByRole } = render(<StartButton callback={null} />);
+    const { getByRole } = render(<StartButton callback={() => {}} />);
 
     expect(getByRole("button", { name: "Start" })).toBeTruthy();
   });
@@ -21,7 +21,7 @@ describe("StartButton component", () => {
   });
 
   it("should be disabled when requested", () => {
-    const { getByRole } = render(<StartButton callback={null} disabled />);
+    const { getByRole } = render(<StartButton callback={() => {}} disabled />);
 
     expect(getByRole("button")).toBeDisabled();
   });
@@ -29,7 +29,7 @@ describe("StartButton component", () => {
 
 describe("StopButton component", () => {
   it("should display correct text", () => {
-    const { getByRole } = render(<StopButton callback={null} />);
+    const { getByRole } = render(<StopButton callback={() => {}} />);
 
     expect(getByRole("button", { name: "Stop" })).toBeTruthy();
   });
@@ -45,7 +45,7 @@ describe("StopButton component", () => {
   });
 
   it("should be disabled when requested", () => {
-    const { getByRole } = render(<StopButton callback={null} disabled />);
+    const { getByRole } = render(<StopButton callback={() => {}} disabled />);
 
     expect(getByRole("button")).toBeDisabled();
   });

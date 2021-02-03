@@ -6,8 +6,7 @@ type StylingProps = {
 
 type ConfigurableButtonProps = {
   callback: () => void;
-  disabled: boolean;
-  autoFocus?: boolean;
+  disabled?: boolean;
 };
 
 type ButtonProps = StylingProps & ConfigurableButtonProps;
@@ -16,7 +15,6 @@ const Button: FC<ButtonProps> = ({
   className,
   callback,
   disabled,
-  autoFocus,
   children,
 }) => {
   return (
@@ -25,7 +23,6 @@ const Button: FC<ButtonProps> = ({
       className={className}
       onClick={callback}
       disabled={disabled}
-      autoFocus={autoFocus}
     >
       {children}
     </button>

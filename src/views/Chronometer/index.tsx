@@ -1,11 +1,12 @@
 import { FC, useState, MouseEvent } from "react";
+import { StartButton, StopButton } from "../../components/Button";
 import SetTime from "../../components/SetTime";
 import Timer from "../../components/Timer";
 
 const Chronometer: FC = () => {
   const [editMode, setEditMode] = useState<boolean>(false);
   const [userInput, setUserInput] = useState<string>(":  ");
-  const [secondsAhead, setSecondsAhead] = useState<number>(0);
+  const [secondsAhead, setSecondsAhead] = useState<number>(30);
 
   const enableEditMode = () => !editMode && setEditMode(true);
 
@@ -37,9 +38,11 @@ const Chronometer: FC = () => {
         </div>
       ) : (
         <div onClick={enableEditMode}>
-          <Timer seconds={secondsAhead} running={!editMode} />
+          <Timer seconds={secondsAhead} running={false} />
         </div>
       )}
+      <StartButton callback={() => {}} />
+      <StopButton callback={() => {}} />
     </div>
   );
 };

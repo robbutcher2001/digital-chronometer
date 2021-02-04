@@ -25,6 +25,20 @@ describe('Digital Chronometer', () => {
       .and('have.text', '0');
   });
 
+  it('should allow toggling of edit time mode', () => {
+    cy.visit('http://localhost:3000');
+
+    cy.get('form').submit();
+
+    cy.get('[data-testid="chronometer-toggle-edit"]')
+      .click();
+
+    cy.get('form').submit();
+
+    cy.get('[data-testid="chronometer-toggle-edit"]')
+      .click();
+    });
+
   it('should allow setting new time', () => {
     cy.visit('http://localhost:3000');
 

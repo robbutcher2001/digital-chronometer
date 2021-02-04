@@ -37,7 +37,11 @@ const Chronometer: FC = () => {
   const stopTimer = () => setRunning(false);
 
   return (
-    <div id="toggleWrap" onClick={disableEditMode}>
+    <div
+      id="toggleWrap"
+      onClick={disableEditMode}
+      className={editMode ? "clickable" : undefined}
+    >
       {editMode ? (
         <div onClick={stopPropagation}>
           <SetTime
@@ -47,7 +51,11 @@ const Chronometer: FC = () => {
           />
         </div>
       ) : (
-        <div onClick={enableEditMode}>
+        <div
+          onClick={enableEditMode}
+          className="clickable"
+          data-testid="chronometer-toggle-edit"
+        >
           <Timer seconds={secondsAhead} running={running} />
         </div>
       )}

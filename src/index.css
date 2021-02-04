@@ -34,6 +34,10 @@ body {
   align-items: center;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);

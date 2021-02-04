@@ -4,6 +4,7 @@ import "./index.css";
 type DigitProps = {
   value?: string;
   className?: string;
+  animationDelay?: number;
 };
 
 const Digit: FC<DigitProps> = (props: DigitProps) => {

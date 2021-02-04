@@ -56,6 +56,7 @@ const Timer: FC<TimerProps> = ({ seconds, running }) => {
         value={display[0]}
         className={shake ? "shake" : undefined}
         data-testid="chronometer-m"
+        data-delay="true"
       />
       <Digit
         value={display[1]}
@@ -67,6 +68,7 @@ const Timer: FC<TimerProps> = ({ seconds, running }) => {
         value={display[2]}
         className={shake ? "shake" : undefined}
         data-testid="chronometer-s"
+        data-delay="true"
       />
       <Digit
         value={display[3]}

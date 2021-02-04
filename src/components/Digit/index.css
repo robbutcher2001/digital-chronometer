@@ -11,6 +11,10 @@
 }
 
 .digit.shake {
-  animation: shake 0.5s;
+  animation: shake 0.5s cubic-bezier(1, 0, 1, 1);
   animation-iteration-count: 10;
+}
+
+.shake[data-delay="true"] {
+  animation-delay: 40ms;
 }

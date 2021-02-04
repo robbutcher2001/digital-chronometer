@@ -1,0 +1,15 @@
+input {
+  font-family: var(--base-font-digital);
+  font-size: var(--large-size);
+  height: var(--large-size);
+  width: 630px;
+  background-color: var(--background-colour);
+  color: #fff;
+  text-align: center;
+  border: 2px dashed #808080;
+  border-radius: 25px;
+  box-sizing: border-box;
+  outline: none;
+  padding: 1.5rem 0 0;
+  caret-color: #808080;
+}

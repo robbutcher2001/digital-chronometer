@@ -11,8 +11,8 @@ const convertToSeconds = (hhmm: string) => {
 };
 
 const Chronometer: FC = () => {
-  const [editMode, setEditMode] = useState<boolean>(false);
-  const [userInput, setUserInput] = useState<string>(":  ");
+  const [editMode, setEditMode] = useState<boolean>(true);
+  const [userInput, setUserInput] = useState<string>(":30");
   const [secondsAhead, setSecondsAhead] = useState<number>(30);
   const [running, setRunning] = useState<boolean>(false);
 

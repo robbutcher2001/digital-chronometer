@@ -1,4 +1,5 @@
 import { FC, ChangeEvent, FormEvent } from "react";
+import "./index.css";
 
 type SetTimeProps = {
   time?: string;

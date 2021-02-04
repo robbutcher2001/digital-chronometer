@@ -1,6 +1,8 @@
 .division {
-  font-size: var(--large-font);
+  font-size: var(--large-size);
   display: inline-block;
+  line-height: var(--large-size);
+  transform: translateY(12px);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

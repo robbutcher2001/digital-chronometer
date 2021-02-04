@@ -3,6 +3,12 @@
   src: url(./fonts/digital-7.ttf);
 }
 
+:root {
+  --large-size: 18rem;
+  --base-font-digital: "Digital";
+  --background-colour: rgb(32, 31, 31);
+}
+
 html,
 body,
 #root,
@@ -11,12 +17,12 @@ body,
 }
 
 html {
-  font-family: "Digital";
+  font-family: var(--base-font-digital);
 }
 
 body {
   color: #fff;
-  background-color: rgb(32, 31, 31);
+  background-color: var(--background-colour);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,10 +32,6 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-}
-
-:root {
-  --large-font: 18rem;
 }
 
 @keyframes shake {

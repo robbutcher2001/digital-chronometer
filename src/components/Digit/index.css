@@ -1,8 +1,10 @@
 .digit {
-  font-size: var(--large-font);
+  font-size: var(--large-size);
   display: inline-block;
-  min-width: calc(var(--large-font) / 2);
+  min-width: calc(var(--large-size) / 2);
+  line-height: var(--large-size);
   text-align: right;
+  transform: translateY(12px);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;

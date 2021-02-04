@@ -2,6 +2,8 @@ describe('Digital Chronometer', () => {
   it('should default to 30 second timer', () => {
     cy.visit('http://localhost:3000');
 
+    cy.get('form').submit();
+
     cy.get('[data-testid="chronometer-m"]')
       .should('be.visible')
       .and('have.text', '0');
@@ -27,7 +29,10 @@ describe('Digital Chronometer', () => {
     cy.visit('http://localhost:3000');
 
     cy.get('[data-testid="chronometer-edit"]')
+      .clear()
       .type('12');
+
+    cy.get('form').submit();
 
     cy.get('[data-testid="chronometer-m"]')
       .should('be.visible')
@@ -54,7 +59,10 @@ describe('Digital Chronometer', () => {
     cy.visit('http://localhost:3000');
 
     cy.get('[data-testid="chronometer-edit"]')
+      .clear()
       .type('60');
+
+    cy.get('form').submit();
 
     cy.get('[data-testid="chronometer-m"]')
       .should('be.visible')
@@ -81,11 +89,14 @@ describe('Digital Chronometer', () => {
     cy.visit('http://localhost:3000');
 
     cy.get('[data-testid="chronometer-edit"]')
+      .clear()
       .type('6000');
+
+    cy.get('form').submit();
 
     cy.get('[data-testid="chronometer-m"]')
       .should('be.visible')
-      .and('have.text', '0');
+      .and('have.text', '6');
 
     cy.get('[data-testid="chronometer-mm"]')
       .should('be.visible')
@@ -108,7 +119,10 @@ describe('Digital Chronometer', () => {
     cy.visit('http://localhost:3000');
 
     cy.get('[data-testid="chronometer-edit"]')
+      .clear()
       .type('2');
+
+    cy.get('form').submit();
 
     cy.get('[data-testid="stop"]')
       .should('be.disabled');
@@ -152,7 +166,10 @@ describe('Digital Chronometer', () => {
     cy.visit('http://localhost:3000');
 
     cy.get('[data-testid="chronometer-edit"]')
+      .clear()
       .type('12');
+
+    cy.get('form').submit();
 
     cy.get('[data-testid="chronometer-s"]')
       .should('be.visible')
@@ -185,7 +202,7 @@ describe('Digital Chronometer', () => {
     cy.get('[data-testid="chronometer-s"]')
       .should('be.visible')
       .and('have.text', '1');
-  });
+    });
 })
 
 export {};

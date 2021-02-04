@@ -61,6 +61,7 @@ const SetTime: FC<SetTimeProps> = ({
           value={time}
           onChange={onChange}
           autoFocus
+          data-testid="chronometer-edit"
         />
       </label>
     </form>

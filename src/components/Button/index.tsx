@@ -18,13 +18,12 @@ const Button: FC<ButtonProps> = ({ label, className, callback, disabled }) => {
     <button
       id={label}
       type="button"
+      aria-label={label}
       className={className}
       onClick={callback}
       disabled={disabled}
       data-testid={label}
-    >
-      <div aria-label={label}></div>
-    </button>
+    />
   );
 };
 

@@ -41,7 +41,8 @@ body {
 .buttons {
   display: flex;
   align-items: flex-end;
-  height: calc(70px + 1.5rem + 1.5rem);
+  height: 150px;
+  gap: 6rem;
 }
 
 @keyframes shake {

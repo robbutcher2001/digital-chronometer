@@ -1,10 +1,9 @@
 button {
   position: relative;
-  width: 100px;
-  height: 70px;
+  width: 120px;
+  height: 84px;
   border: none;
-  border-radius: 50px/25px;
-  margin: 1.5rem 2rem;
+  border-radius: 60px/30px;
   padding: 0;
   outline: none;
   cursor: pointer;
@@ -21,20 +20,19 @@ button:before {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100px;
-  height: 50px;
-  border-radius: 50px/25px;
+  width: 120px;
+  height: 60px;
+  border-radius: 60px/30px;
 }
 
 button:not(:disabled):active {
-  height: 52px;
-  margin-top: 18px;
+  height: 62px;
 }
 
 button:disabled {
   cursor: auto;
-  height: 55px;
-  margin-top: 15px;
+  height: 66px;
+  opacity: 0.5;
 }
 
 button.start {
@@ -46,10 +44,6 @@ button.start:before {
   background-color: #82b74b;
 }
 
-button.start:disabled {
-  opacity: 0.6;
-}
-
 button.stop {
   background-color: rgba(201, 76, 76, 0.6);
   box-shadow: 0px 3px 0px rgb(255 255 255 / 30%);
@@ -57,10 +51,6 @@ button.stop {
 
 button.stop:before {
   background-color: #c94c4c;
-}
-
-button.stop:disabled {
-  opacity: 0.8;
 }
 
 /* button.start div {

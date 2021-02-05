@@ -1,11 +1,11 @@
 button {
   position: relative;
+  width: 100px;
+  height: 70px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px/25px;
   margin: 1.5rem 2rem;
-  padding: 0 70px;
-  height: 50px;
-  box-shadow: 4px 5px 2px 0px #666;
+  padding: 0;
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -13,42 +13,77 @@ button {
   -webkit-user-select: none;
   -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 200ms cubic-bezier(0, 0, 0, 1);
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 50px;
+  border-radius: 50px/25px;
 }
 
 button:not(:disabled):active {
-  box-shadow: 2px 0 2px 0 #666;
-  transform: translateY(5px);
+  height: 52px;
+  margin-top: 18px;
 }
 
 button:disabled {
   cursor: auto;
-  box-shadow: 2px 2px 2px 0 #666;
-  opacity: 0.1;
-  transform: translateY(3px);
+  height: 55px;
+  margin-top: 15px;
 }
 
 button.start {
+  background-color: rgba(130, 183, 75, 0.6);
+  box-shadow: 0px 3px 0px rgb(255 255 255 / 40%);
+}
+
+button.start:before {
   background-color: #82b74b;
 }
 
-button.start div {
+button.start:disabled {
+  opacity: 0.6;
+}
+
+button.stop {
+  background-color: rgba(201, 76, 76, 0.6);
+  box-shadow: 0px 3px 0px rgb(255 255 255 / 30%);
+}
+
+button.stop:before {
+  background-color: #c94c4c;
+}
+
+button.stop:disabled {
+  opacity: 0.8;
+}
+
+/* button.start div {
   margin: 0;
   position: absolute;
   top: 8px;
   border: 18px solid transparent;
   border-left-color: #fff;
   transform: scale(1.5, 0.8);
-}
+} */
 
-button.stop {
-  background-color: #c94c4c;
-}
-
-button.stop div {
-  margin: 0;
+/* button.stop div { */
+/* margin: 0;
   position: absolute;
   top: 14px;
-  left: 58px;
-  border: 12px solid #fff;
+  left: 58px; */
+/* top: calc(50% - 12px);
+  left: calc(50% - 12px); */
+/* border: 12px solid #fff;
+} */
+
+.cylinder {
+  /* border-radius: 65px/35px; if it's 2:1 ratio, you get standard cylinder but this ratio makes it move like a button? */
+  /* background-color: rgba(201, 76, 76, 0.6); */
+  /* box-shadow: 0px 3px 0px rgb(255 255 255 / 30%); */
 }

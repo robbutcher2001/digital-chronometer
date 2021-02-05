@@ -59,7 +59,7 @@ const Chronometer: FC = () => {
           <Timer seconds={secondsAhead} running={running} />
         </div>
       )}
-      <div>
+      <div className="buttons">
         <StartButton callback={startTimer} disabled={running || editMode} />
         <StopButton callback={stopTimer} disabled={!running || editMode} />
       </div>

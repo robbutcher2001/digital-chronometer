@@ -38,6 +38,12 @@ body {
   cursor: pointer;
 }
 
+.buttons {
+  display: flex;
+  align-items: flex-end;
+  height: calc(70px + 1.5rem + 1.5rem);
+}
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);

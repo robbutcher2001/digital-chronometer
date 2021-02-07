@@ -3,7 +3,7 @@ input {
   font-size: var(--large-size);
   height: var(--large-size);
   width: 630px;
-  background-color: var(--background-colour);
+  background-color: transparent;
   color: #fff;
   text-align: center;
   border: 2px dashed #808080;

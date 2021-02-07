@@ -3,7 +3,7 @@ button {
   width: 120px;
   height: 84px;
   border: none;
-  border-radius: 60px/30px; /* if it's 2:1 ratio, you get standard cylinder but this ratio makes it move like a button? */
+  border-radius: 60px/30px;
   padding: 0;
   outline: none;
   cursor: pointer;
@@ -32,12 +32,12 @@ button:not(:disabled):active {
 button:disabled {
   cursor: auto;
   height: 66px;
-  opacity: 0.5;
+  filter: brightness(30%);
 }
 
 button.start {
-  background-color: rgba(130, 183, 75, 0.6);
-  box-shadow: 0px 3px 0px rgb(255 255 255 / 40%);
+  background-color: #5c8434;
+  box-shadow: 0px 3px 0px rgb(255 255 255 / 70%);
   margin-right: 3rem;
 }
 
@@ -46,8 +46,8 @@ button.start:before {
 }
 
 button.stop {
-  background-color: rgba(201, 76, 76, 0.6);
-  box-shadow: 0px 3px 0px rgb(255 255 255 / 30%);
+  background-color: #7b3535;
+  box-shadow: 0px 3px 0px rgb(255 255 255 / 60%);
   margin-left: 3rem;
 }
 

@@ -15,6 +15,19 @@
   animation-iteration-count: 10;
 }
 
-.shake[data-delay="true"] {
+.shake[data-shake-delay="true"] {
   animation-delay: 40ms;
+}
+
+.digit.roll-right {
+  animation: roll-right 3s 2 linear alternate;
+}
+
+.digit.roll-left {
+  animation: roll-left 3s 2 linear alternate;
+}
+
+.roll-right[data-roll-delay="true"],
+.roll-left[data-roll-delay="true"] {
+  animation-delay: 1.4s;
 }

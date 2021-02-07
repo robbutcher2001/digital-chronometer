@@ -42,7 +42,6 @@ body {
   display: flex;
   align-items: flex-end;
   height: 150px;
-  gap: 6rem;
 }
 
 @keyframes shake {
@@ -78,5 +77,29 @@ body {
   }
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes roll-right {
+  0% {
+    transform: translate(0, 12px) rotate(0deg);
+  }
+  50% {
+    transform: translate(25vw, -8px) rotate(360deg);
+  }
+  100% {
+    transform: translate(50vw, -8px) rotate(720deg);
+  }
+}
+
+@keyframes roll-left {
+  0% {
+    transform: translate(0, 12px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-25vw, -8px) rotate(-360deg);
+  }
+  100% {
+    transform: translate(-50vw, -8px) rotate(-720deg);
   }
 }

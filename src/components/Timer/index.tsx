@@ -7,6 +7,11 @@ type TimerProps = {
   running: boolean;
 };
 
+type Animation = {
+  left: string;
+  right: string;
+};
+
 const parseSecondsToDisplay = (seconds: number): string[] => {
   const displayMinutes = (seconds > 59
     ? Math.floor(seconds / 60)
@@ -24,14 +29,23 @@ const parseSecondsToDisplay = (seconds: number): string[] => {
   ];
 };
 
+const animations: Animation[] = [
+  { left: "shake", right: "shake" },
+  { left: "roll-left", right: "roll-right" },
+];
+
 const Timer: FC<TimerProps> = ({ seconds, running }) => {
   const [display, setDisplay] = useState<string[]>(["0", "0", "0", "0"]);
   const [secondsLeft, setSecondsLeft] = useState<number>(seconds);
-  const [shake, setShake] = useState<boolean>(false);
+  const [animationIndex, setAnimationIndex] = useState<number>(0);
+  const [animate, setAnimate] = useState<boolean>(false);
 
   useEffect(() => {
     setDisplay(parseSecondsToDisplay(seconds));
-  }, [seconds]);
+    setAnimationIndex(
+      Math.floor(Math.random() * Math.floor(animations.length))
+    );
+  }, [seconds, animationIndex]);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
@@ -42,7 +56,7 @@ const Timer: FC<TimerProps> = ({ seconds, running }) => {
         setSecondsLeft(newSeconds);
         setDisplay(parseSecondsToDisplay(newSeconds));
         if (newSeconds === 0) {
-          setShake(true);
+          setAnimate(true);
         }
       }, 1000);
     }
@@ -54,25 +68,27 @@ const Timer: FC<TimerProps> = ({ seconds, running }) => {
     <>
       <Digit
         value={display[0]}
-        className={shake ? "shake" : undefined}
+        className={animate ? `${animations[animationIndex].left}` : undefined}
         data-testid="chronometer-m"
-        data-delay="true"
+        data-shake-delay="true"
       />
       <Digit
         value={display[1]}
-        className={shake ? "shake" : undefined}
+        className={animate ? `${animations[animationIndex].left}` : undefined}
         data-testid="chronometer-mm"
+        data-roll-delay="true"
       />
       <Division data-testid="chronometer-div" />
       <Digit
         value={display[2]}
-        className={shake ? "shake" : undefined}
+        className={animate ? `${animations[animationIndex].right}` : undefined}
         data-testid="chronometer-s"
-        data-delay="true"
+        data-shake-delay="true"
+        data-roll-delay="true"
       />
       <Digit
         value={display[3]}
-        className={shake ? "shake" : undefined}
+        className={animate ? `${animations[animationIndex].right}` : undefined}
         data-testid="chronometer-ss"
       />
     </>

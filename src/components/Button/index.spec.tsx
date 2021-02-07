@@ -7,7 +7,7 @@ describe("StartButton component", () => {
   it("should display correct text", () => {
     const { getByRole } = render(<StartButton callback={() => {}} />);
 
-    expect(getByRole("button", { name: "start" })).toBeTruthy();
+    expect(getByRole("button", { name: "start" })).toBeInTheDocument();
   });
 
   it("should call the callback", () => {
@@ -31,7 +31,7 @@ describe("StopButton component", () => {
   it("should display correct text", () => {
     const { getByRole } = render(<StopButton callback={() => {}} />);
 
-    expect(getByRole("button", { name: "stop" })).toBeTruthy();
+    expect(getByRole("button", { name: "stop" })).toBeInTheDocument();
   });
 
   it("should call the callback", () => {

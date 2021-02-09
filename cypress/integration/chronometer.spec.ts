@@ -206,6 +206,16 @@ describe("Digital Chronometer", () => {
 
     cy.get("@copySpy").should("be.calledWithExactly", "http://localhost:3000/");
   });
+
+  it("should show share confirmation only when share button is clicked", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.get('[data-testid="share_confirmed"]').should("not.be.visible");
+
+    cy.get("button.share").click();
+
+    cy.get('[data-testid="share_confirmed"]').should("be.visible");
+  });
 });
 
 export {};

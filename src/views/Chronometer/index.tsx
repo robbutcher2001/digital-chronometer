@@ -1,6 +1,7 @@
 import { FC, useState, MouseEvent } from "react";
 import { StartButton, StopButton } from "../../components/Button";
 import SetTime from "../../components/SetTime";
+import ShareIcon from "../../components/ShareIcon";
 import Timer from "../../components/Timer";
 
 const convertToSeconds = (hhmm: string) => {
@@ -43,6 +44,9 @@ const Chronometer: FC = () => {
         <div className="overlay middle-right" />
         <div className="overlay middle-left" />
         <div className="overlay bottom-left" />
+      </div>
+      <div className="share-icon">
+        <ShareIcon />
       </div>
       <div
         id="toggleWrap"

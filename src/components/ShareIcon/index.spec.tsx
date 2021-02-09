@@ -13,7 +13,7 @@ describe("ShareIcon component", () => {
   it("should be accessible via role", () => {
     const { getByRole } = render(<ShareIcon />);
 
-    expect(getByRole("link", { name: "share" })).toBeInTheDocument();
+    expect(getByRole("button", { name: "share" })).toBeInTheDocument();
   });
 
   it("should be accessible via aria-label", () => {
@@ -25,7 +25,7 @@ describe("ShareIcon component", () => {
   it("should copy URL to clipboard when clicked", () => {
     const { getByRole } = render(<ShareIcon />);
 
-    getByRole("link", { name: "share" }).click();
+    getByRole("button", { name: "share" }).click();
 
     expect(navigator.clipboard.writeText).toBeCalledTimes(1);
   });

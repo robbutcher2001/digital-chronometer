@@ -1,4 +1,60 @@
-button.share {
+.share {
+  position: relative;
+}
+
+.share > button.confirmed {
+  transform: rotateY(180deg);
+}
+
+.confirmation {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.175);
+  border-radius: 50%;
+  color: #82b74b;
+  font-size: 1.6rem;
+  line-height: 54px;
+  text-align: center;
+  vertical-align: middle;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.confirmation.confirmed {
+  transform: rotateY(0deg);
+  cursor: none;
+}
+
+.share > .text {
+  font-family: Arial;
+  position: absolute;
+  height: 44px;
+  line-height: 44px;
+  left: -245px;
+  top: calc((52px - 44px) / 2);
+  padding: 0 1.2rem;
+  border-radius: 5px;
+  background: var(--background-colour);
+  vertical-align: middle;
+  animation: fade 0.6s;
+}
+
+.share > .text:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: calc((44px - 15px) / 2);
+  right: calc(-15px / 2);
+  background-color: var(--background-colour);
+  border-top-right-radius: 3px;
+  transform: rotate(45deg);
+}
+
+.share > button {
   position: relative;
   width: 50px;
   height: 50px;
@@ -11,19 +67,20 @@ button.share {
   -webkit-tap-highlight-color: transparent;
   box-sizing: content-box;
   transition: all 0.2s ease-in-out;
+  backface-visibility: hidden;
 }
 
-button.share:hover {
+.share > button:not(.confirmed):hover {
   background-color: rgba(255, 255, 255, 0.175);
   transform: scale(1.1);
 }
 
-button.share:active {
+.share > button:active {
   background-color: rgba(255, 255, 255, 0.35);
   transform: scale(1);
 }
 
-button.share .box {
+.share > button .box {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -34,7 +91,7 @@ button.share .box {
   box-sizing: border-box;
 }
 
-button.share .arrow {
+.share > button .arrow {
   position: absolute;
   width: 2px;
   height: 18px;
@@ -44,7 +101,7 @@ button.share .arrow {
   right: calc((50px - 10px) / 2);
 }
 
-button.share .arrow:before {
+.share > button .arrow:before {
   content: "";
   width: 2px;
   height: 8px;
@@ -55,7 +112,7 @@ button.share .arrow:before {
   top: -2px;
 }
 
-button.share .arrow:after {
+.share > button .arrow:after {
   content: "";
   width: 2px;
   height: 8px;
@@ -64,4 +121,13 @@ button.share .arrow:after {
   transform: rotate(-45deg);
   left: 2px;
   top: -2px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

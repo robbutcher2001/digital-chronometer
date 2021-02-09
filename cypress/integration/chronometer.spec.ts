@@ -202,19 +202,25 @@ describe("Digital Chronometer", () => {
       },
     });
 
-    cy.get("button.share").click();
+    cy.get(".share button").click();
 
     cy.get("@copySpy").should("be.calledWithExactly", "http://localhost:3000/");
   });
 
-  it("should show share confirmation only when share button is clicked", () => {
+  it("should show share confirmation only when share button is clicked and hide on unfocus", () => {
     cy.visit("http://localhost:3000");
 
-    cy.get('[data-testid="share_confirmed"]').should("not.be.visible");
+    cy.get('[data-testid="share_confirmed"]').should("not.exist");
 
-    cy.get("button.share").click();
+    cy.get(".share button").click();
 
-    cy.get('[data-testid="share_confirmed"]').should("be.visible");
+    cy.get('[data-testid="share_confirmed"]')
+      .should("exist")
+      .should("be.visible");
+
+    cy.get('[data-testid="chronometer-edit"]').click();
+
+    cy.get('[data-testid="share_confirmed"]').should("not.exist");
   });
 });
 

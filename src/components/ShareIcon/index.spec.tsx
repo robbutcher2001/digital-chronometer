@@ -30,13 +30,17 @@ describe("ShareIcon component", () => {
     expect(navigator.clipboard.writeText).toBeCalledTimes(1);
   });
 
-  it("should show confirmation only when button is clicked", () => {
-    const { getByRole, getByText } = render(<ShareIcon />);
+  it("should show confirmation only when button is clicked and focused", () => {
+    const { getByRole, queryByTestId } = render(<ShareIcon />);
 
-    expect(getByText("share_confirmed")).not.toBeInTheDocument();
+    expect(queryByTestId("share_confirmed")).not.toBeInTheDocument();
 
     getByRole("button", { name: "share" }).click();
 
-    expect(getByText("share_confirmed")).toBeInTheDocument();
+    expect(queryByTestId("share_confirmed")).toBeInTheDocument();
+
+    getByRole("button", { name: "share" }).blur();
+
+    expect(queryByTestId("share_confirmed")).not.toBeInTheDocument();
   });
 });

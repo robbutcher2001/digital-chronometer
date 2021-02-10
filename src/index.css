@@ -77,35 +77,62 @@ body {
 
 #toggle-wrap {
   display: flex;
-  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
 
-.clickable {
-  cursor: pointer;
-}
-
 .glass {
-  padding: 8rem;
+  display: flex;
+  flex-flow: row nowrap;
   border-radius: 2rem;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
-  color: rgb(32, 31, 31);
-  box-sizing: border-box;
+  color: var(--deep-grey-colour);
   width: 80vw;
   height: 80vh;
   backdrop-filter: blur(18px);
 }
 
-.buttons {
+.glass .card {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem;
+}
+
+.glass .left {
+  flex-basis: 20%;
+}
+
+.glass .right {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass .right .timer {
+  cursor: pointer;
+}
+
+.glass .timer,
+.glass .set-timer {
+  padding: 1rem 6rem;
+  margin: 2rem;
+}
+
+.glass .right .buttons {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  height: 150px;
+  height: 84px;
+  padding: 2rem 6rem;
+  margin: 2rem;
 }
 
 @keyframes shake {

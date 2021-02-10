@@ -49,29 +49,38 @@ const Chronometer: FC = () => {
       <div
         id="toggle-wrap"
         onClick={disableEditMode}
-        className={editMode ? "clickable" : undefined}
+        className={editMode ? "timer" : undefined}
       >
         <div className="glass">
-          {editMode ? (
-            <div onClick={stopPropagation}>
-              <SetTime
-                time={userInput}
-                updateUserInput={updateUserInput}
-                onSubmit={disableEditMode}
+          <div className="left card" />
+          <div className="right">
+            {editMode ? (
+              <div className="card set-timer" onClick={stopPropagation}>
+                <SetTime
+                  time={userInput}
+                  updateUserInput={updateUserInput}
+                  onSubmit={disableEditMode}
+                />
+              </div>
+            ) : (
+              <div
+                onClick={enableEditMode}
+                className="card timer"
+                data-testid="chronometer-toggle-edit"
+              >
+                <Timer seconds={secondsAhead} running={running} />
+              </div>
+            )}
+            <div className="card buttons">
+              <StartButton
+                callback={startTimer}
+                disabled={running || editMode}
+              />
+              <StopButton
+                callback={stopTimer}
+                disabled={!running || editMode}
               />
             </div>
-          ) : (
-            <div
-              onClick={enableEditMode}
-              className="clickable"
-              data-testid="chronometer-toggle-edit"
-            >
-              <Timer seconds={secondsAhead} running={running} />
-            </div>
-          )}
-          <div className="buttons">
-            <StartButton callback={startTimer} disabled={running || editMode} />
-            <StopButton callback={stopTimer} disabled={!running || editMode} />
           </div>
         </div>
       </div>

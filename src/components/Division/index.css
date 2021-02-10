@@ -4,6 +4,7 @@
   line-height: var(--large-size);
   transform: translateY(12px);
   user-select: none;
-  -webkit-user-select: none;
   -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }

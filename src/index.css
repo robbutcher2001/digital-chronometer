@@ -6,13 +6,15 @@
 :root {
   --large-size: 18rem;
   --base-font-digital: "Digital";
-  --background-colour: rgb(32, 31, 31);
+  --deep-grey-colour: rgb(32, 31, 31);
+  --vibrant-blue-colour: rgb(52, 140, 178);
+  --vibrant-blue-colour-light: rgba(52, 140, 178, 0.85);
 }
 
 html,
 body,
 #root,
-#toggleWrap {
+#toggle-wrap {
   height: 100%;
 }
 
@@ -23,20 +25,9 @@ html {
 body {
   margin: 0;
   color: #fff;
+  background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -20;
-  background-image: url(./clock.jpg);
-  background-size: cover;
-  filter: brightness(25%);
 }
 
 .overlay {
@@ -46,28 +37,35 @@ body {
   bottom: 0;
   left: 0;
   z-index: -10;
-  background-color: var(--background-colour);
-  mix-blend-mode: hard-light;
 }
 
 .overlay.top-right {
   clip-path: polygon(100% 0, 60% 0, 100% 50%);
-  opacity: 0.9;
+  background-color: var(--vibrant-blue-colour);
 }
 
 .overlay.middle-right {
   clip-path: polygon(60.1% 0, 100% 49.9%, 100% 100%, 88% 100%, 12% 0);
-  opacity: 0.98;
+  background: linear-gradient(
+    45deg,
+    var(--vibrant-blue-colour) 65%,
+    var(--vibrant-blue-colour-light)
+  );
 }
 
 .overlay.middle-left {
   clip-path: polygon(0 0, 12.1% 0, 88.1% 100%, 40% 100%, 0 50%);
-  opacity: 0.96;
+  background: linear-gradient(
+    45deg,
+    var(--vibrant-blue-colour),
+    var(--vibrant-blue-colour-light)
+  );
 }
 
 .overlay.bottom-left {
   clip-path: polygon(0 49.9%, 0% 100%, 40.1% 100%);
-  opacity: 0.8;
+  opacity: 0.9;
+  background-color: var(--vibrant-blue-colour);
 }
 
 .share-icon {
@@ -77,7 +75,7 @@ body {
   margin: 1rem 2rem;
 }
 
-#toggleWrap {
+#toggle-wrap {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -88,9 +86,25 @@ body {
   cursor: pointer;
 }
 
+.glass {
+  padding: 8rem;
+  border-radius: 2rem;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  color: rgb(32, 31, 31);
+  box-sizing: border-box;
+  width: 80vw;
+  height: 80vh;
+  backdrop-filter: blur(18px);
+}
+
 .buttons {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   height: 150px;
 }
 

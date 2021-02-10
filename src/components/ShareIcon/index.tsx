@@ -25,7 +25,7 @@ const ShareIcon: FC = () => {
       </div>
       {confirmed && (
         <div className="text" data-testid="share_confirmed">
-          Link copied to clipboard!
+          Link copied to clipboard
         </div>
       )}
       <button

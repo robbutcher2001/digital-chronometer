@@ -39,40 +39,40 @@ const Chronometer: FC = () => {
 
   return (
     <>
-      <div className="background">
-        <div className="overlay top-right" />
-        <div className="overlay middle-right" />
-        <div className="overlay middle-left" />
-        <div className="overlay bottom-left" />
-      </div>
+      <div className="overlay top-right" />
+      <div className="overlay middle-right" />
+      <div className="overlay middle-left" />
+      <div className="overlay bottom-left" />
       <div className="share-icon">
         <ShareIcon />
       </div>
       <div
-        id="toggleWrap"
+        id="toggle-wrap"
         onClick={disableEditMode}
         className={editMode ? "clickable" : undefined}
       >
-        {editMode ? (
-          <div onClick={stopPropagation}>
-            <SetTime
-              time={userInput}
-              updateUserInput={updateUserInput}
-              onSubmit={disableEditMode}
-            />
+        <div className="glass">
+          {editMode ? (
+            <div onClick={stopPropagation}>
+              <SetTime
+                time={userInput}
+                updateUserInput={updateUserInput}
+                onSubmit={disableEditMode}
+              />
+            </div>
+          ) : (
+            <div
+              onClick={enableEditMode}
+              className="clickable"
+              data-testid="chronometer-toggle-edit"
+            >
+              <Timer seconds={secondsAhead} running={running} />
+            </div>
+          )}
+          <div className="buttons">
+            <StartButton callback={startTimer} disabled={running || editMode} />
+            <StopButton callback={stopTimer} disabled={!running || editMode} />
           </div>
-        ) : (
-          <div
-            onClick={enableEditMode}
-            className="clickable"
-            data-testid="chronometer-toggle-edit"
-          >
-            <Timer seconds={secondsAhead} running={running} />
-          </div>
-        )}
-        <div className="buttons">
-          <StartButton callback={startTimer} disabled={running || editMode} />
-          <StopButton callback={stopTimer} disabled={!running || editMode} />
         </div>
       </div>
     </>

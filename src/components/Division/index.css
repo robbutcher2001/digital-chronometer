@@ -1,10 +1,37 @@
 .division {
-  font-size: var(--large-size);
+  font-size: var(--large-font-size);
   display: inline-block;
-  line-height: var(--large-size);
-  transform: translateY(12px);
+  line-height: var(--large-font-size);
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .division {
+    font-size: var(--medium-font-size);
+    line-height: var(--medium-font-size);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .division {
+    font-size: var(--small-font-size);
+    line-height: var(--small-font-size);
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .division {
+    font-size: var(--smallest-font-size);
+    line-height: var(--smallest-font-size);
+  }
+}
+
+@media (max-width: 480px) {
+  .division {
+    font-size: var(--smallest-font-size);
+    line-height: var(--smallest-font-size);
+  }
 }

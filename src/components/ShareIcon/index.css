@@ -122,6 +122,13 @@
   top: -2px;
 }
 
+@media (max-width: 480px) {
+  .share > .text {
+    font-size: 0.8rem;
+    left: -210px;
+  }
+}
+
 @keyframes fade {
   from {
     opacity: 0;

@@ -1,18 +1,40 @@
 .digit {
-  font-size: var(--large-size);
+  font-size: var(--large-font-size);
   display: inline-block;
-  line-height: var(--large-size);
+  min-width: 1ch;
+  line-height: var(--large-font-size);
   text-align: right;
-  transform: translateY(12px);
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 1440px) and (min-width: 1025px) {
   .digit {
-    min-width: calc(var(--large-size) / 2);
+    font-size: var(--medium-font-size);
+    line-height: var(--medium-font-size);
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .digit {
+    font-size: var(--small-font-size);
+    line-height: var(--small-font-size);
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .digit {
+    font-size: var(--smallest-font-size);
+    line-height: var(--smallest-font-size);
+  }
+}
+
+@media (max-width: 480px) {
+  .digit {
+    font-size: var(--smallest-font-size);
+    line-height: var(--smallest-font-size);
   }
 }
 

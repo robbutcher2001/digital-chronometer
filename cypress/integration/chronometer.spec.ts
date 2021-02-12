@@ -222,6 +222,20 @@ describe("Digital Chronometer", () => {
 
     cy.get('[data-testid="share_confirmed"]').should("not.exist");
   });
+
+  it("should show tips", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.get('[data-testid="tips"]').should("be.exist");
+
+    cy.get('[data-testid="tips"] h1').should("be.exist");
+
+    cy.get('[data-testid="tips"] h2').should("be.exist");
+
+    cy.get('[data-testid="tips"] ul').should("be.exist");
+
+    cy.get('[data-testid="tips"] ul li').should("be.exist");
+  });
 });
 
 export {};

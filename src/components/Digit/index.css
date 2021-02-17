@@ -1,13 +1,10 @@
 .digit {
+  font-family: var(--digital-font);
   font-size: var(--large-font-size);
   display: inline-block;
   min-width: 1ch;
   line-height: var(--large-font-size);
   text-align: right;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 }
 
 @media (max-width: 1440px) and (min-width: 1025px) {
@@ -58,4 +55,8 @@
 .roll-right[data-roll-delay="true"],
 .roll-left[data-roll-delay="true"] {
   animation-delay: 1.4s;
+}
+
+.pulse {
+  animation: pulse 0.8s ease-in 10;
 }

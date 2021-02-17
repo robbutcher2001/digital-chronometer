@@ -8,10 +8,6 @@ button.stop {
   padding: 0;
   outline: none;
   cursor: pointer;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: opacity 200ms cubic-bezier(0, 0, 0, 1);
 }
@@ -40,23 +36,23 @@ button.stop:disabled {
 }
 
 button.start {
-  background-color: #5c8434;
+  background-color: hsl(108deg 55% 39%);
   box-shadow: 0px 6px 10px -2px #fff;
   margin-right: 1.5rem;
 }
 
 button.start:before {
-  background-color: #82b74b;
+  background-color: #4db234;
 }
 
 button.stop {
-  background-color: #7b3535;
+  background-color: hsl(358deg 55% 39%);
   box-shadow: 0px 6px 10px -2px #fff;
   margin-left: 1.5rem;
 }
 
 button.stop:before {
-  background-color: #c94c4c;
+  background-color: #b23438;
 }
 
 button.start:after {

@@ -32,6 +32,7 @@ const parseSecondsToDisplay = (seconds: number): string[] => {
 const animations: Animation[] = [
   { left: "shake", right: "shake" },
   { left: "roll-left", right: "roll-right" },
+  { left: "pulse", right: "pulse" },
 ];
 
 const Timer: FC<TimerProps> = ({ seconds, running }) => {

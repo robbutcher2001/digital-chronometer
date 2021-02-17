@@ -1,4 +1,18 @@
 @font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  src: url(./fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
   font-family: "Digital";
   src: url(./fonts/digital-7.ttf);
 }
@@ -8,7 +22,8 @@
   --medium-font-size: 14rem;
   --small-font-size: 10rem;
   --smallest-font-size: 8rem;
-  --base-font-digital: "Digital";
+  --base-font: "Poppins";
+  --digital-font: "Digital";
   --deep-grey-colour: rgb(32, 31, 31);
   --vibrant-blue-colour: rgb(52, 140, 178);
   --vibrant-blue-colour-light: rgba(52, 140, 178, 0.85);
@@ -22,15 +37,30 @@ body,
 }
 
 html {
-  font-family: var(--base-font-digital);
+  font-family: var(--base-font);
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   color: #fff;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+div {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+li,
+h1,
+h2 {
+  cursor: default;
 }
 
 .overlay {
@@ -40,35 +70,31 @@ body {
   bottom: 0;
   left: 0;
   z-index: -10;
+  background-image: url(./time.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px) brightness(60%);
 }
 
 .overlay.top-right {
   clip-path: polygon(100% 0, 60% 0, 100% 50%);
-  background-color: var(--vibrant-blue-colour);
+  opacity: 0.95;
 }
 
 .overlay.middle-right {
   clip-path: polygon(60.1% 0, 100% 49.9%, 100% 100%, 88% 100%, 12% 0);
-  background: linear-gradient(
-    45deg,
-    var(--vibrant-blue-colour) 65%,
-    var(--vibrant-blue-colour-light)
-  );
+  opacity: 0.98;
 }
 
 .overlay.middle-left {
   clip-path: polygon(0 0, 12.1% 0, 88.1% 100%, 40% 100%, 0 50%);
-  background: linear-gradient(
-    45deg,
-    var(--vibrant-blue-colour),
-    var(--vibrant-blue-colour-light)
-  );
+  opacity: 0.95;
 }
 
 .overlay.bottom-left {
   clip-path: polygon(0 49.9%, 0% 100%, 40.1% 100%);
-  opacity: 0.9;
-  background-color: var(--vibrant-blue-colour);
+  opacity: 0.98;
 }
 
 .share-icon {
@@ -90,26 +116,29 @@ body {
   border-radius: 2rem;
   background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.4)
   );
   color: var(--deep-grey-colour);
   width: 80vw;
   height: 80vh;
-  /* backdrop-filter: blur(18px); */
 }
 
-.glass .card {
+.glass .left {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  flex-basis: 30%;
   background: linear-gradient(
-    to right bottom,
+    to right,
     rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.3)
+    rgba(255, 255, 255, 0.4)
   );
   border-radius: 2rem;
 }
 
-.glass .left {
-  flex-basis: 20%;
+.glass .left::-webkit-scrollbar {
+  display: none;
 }
 
 .glass .right {
@@ -123,6 +152,12 @@ body {
 .glass .right .timer {
   cursor: pointer;
   padding: 1.75rem 0 0;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
+  box-shadow: 2px 2px 20px 0px rgb(255 255 255 / 30%);
   text-align: center;
 }
 
@@ -135,6 +170,7 @@ body {
 .glass .right .set-timer {
   width: 800px;
   margin: 2rem;
+  border-radius: 2rem;
 }
 
 .glass .right .buttons {
@@ -152,10 +188,6 @@ body {
 }
 
 @media (max-width: 1440px) and (min-width: 1025px) {
-  .glass .left {
-    flex-basis: 30%;
-  }
-
   .glass .right .set-timer {
     height: calc(var(--medium-font-size) + 1.75rem);
   }
@@ -171,10 +203,6 @@ body {
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .glass .left {
-    flex-basis: 30%;
-  }
-
   .glass .right .set-timer {
     height: calc(var(--small-font-size) + 1.75rem);
   }
@@ -191,7 +219,7 @@ body {
 
 @media (max-width: 768px) and (min-width: 481px) {
   .glass .left {
-    flex-basis: 0;
+    display: none;
   }
 
   .glass .right .set-timer {
@@ -209,6 +237,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .share-icon {
+    margin: 1rem;
+  }
+
   .glass {
     background: transparent;
     width: 100vw;
@@ -217,7 +249,7 @@ body {
   }
 
   .glass .left {
-    flex-basis: 0;
+    display: none;
   }
 
   .glass .right .set-timer {
@@ -292,5 +324,17 @@ body {
   }
   100% {
     transform: translate(-70vw, 4px) rotate(-720deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

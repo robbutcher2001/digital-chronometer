@@ -14,17 +14,12 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   color: #aae869;
-  font-size: 1.6rem;
-  line-height: 54px;
+  font-size: 2rem;
+  line-height: 52px;
   text-align: center;
-  vertical-align: middle;
   backface-visibility: hidden;
   transform: rotateY(180deg);
   transition: transform 0.2s ease-in-out;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 }
 
 .confirmation.confirmed {
@@ -33,9 +28,9 @@
 }
 
 .share > .text {
-  font-family: Arial;
   position: absolute;
   height: 44px;
+  font-size: 0.9rem;
   line-height: 44px;
   left: -245px;
   top: calc((52px - 44px) / 2);
@@ -125,7 +120,7 @@
 @media (max-width: 480px) {
   .share > .text {
     font-size: 0.8rem;
-    left: -210px;
+    left: -228px;
   }
 }
 

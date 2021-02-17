@@ -1,0 +1,43 @@
+.tips h1 {
+  margin: 3rem 2rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.tips aside div {
+  display: inline-block;
+  margin: 3rem 2rem;
+}
+
+.tips h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.tips ul {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.tips aside li {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.7)
+  );
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .tips h1 {
+    font-size: 2rem;
+  }
+
+  .tips h2 {
+    font-size: 1.4rem;
+  }
+}

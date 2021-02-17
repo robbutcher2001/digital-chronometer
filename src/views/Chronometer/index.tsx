@@ -1,7 +1,8 @@
 import { FC, useState, MouseEvent } from "react";
 import { StartButton, StopButton } from "../../components/Button";
-import SetTime from "../../components/SetTime";
 import ShareIcon from "../../components/ShareIcon";
+import Tips from "../../components/Tips";
+import SetTime from "../../components/SetTime";
 import Timer from "../../components/Timer";
 
 const convertToSeconds = (hhmm: string) => {
@@ -52,10 +53,12 @@ const Chronometer: FC = () => {
         className={editMode ? "timer" : undefined}
       >
         <div className="glass">
-          <div className="left card" />
+          <div className="left">
+            <Tips />
+          </div>
           <div className="right">
             {editMode ? (
-              <div className="card set-timer" onClick={stopPropagation}>
+              <div className="set-timer" onClick={stopPropagation}>
                 <SetTime
                   time={userInput}
                   updateUserInput={updateUserInput}
@@ -65,13 +68,13 @@ const Chronometer: FC = () => {
             ) : (
               <div
                 onClick={enableEditMode}
-                className="card timer"
+                className="timer"
                 data-testid="chronometer-toggle-edit"
               >
                 <Timer seconds={secondsAhead} running={running} />
               </div>
             )}
-            <div className="card buttons">
+            <div className="buttons">
               <StartButton
                 callback={startTimer}
                 disabled={running || editMode}

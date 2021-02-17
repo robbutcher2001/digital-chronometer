@@ -11,15 +11,15 @@ describe("Tips component", () => {
   });
 
   it("should render at least one h2", () => {
-    const { queryByRole } = render(<Tips />);
+    const { queryAllByRole } = render(<Tips />);
 
-    expect(queryByRole("heading", { level: 2 })).toBeInTheDocument();
+    expect(queryAllByRole("heading", { level: 2 }).length).toBeGreaterThan(1);
   });
 
   it("should render at least one ul with li children", () => {
-    const { queryByRole } = render(<Tips />);
+    const { queryAllByRole } = render(<Tips />);
 
-    expect(queryByRole("list")).toBeInTheDocument();
-    expect(queryByRole("listitem")).toBeInTheDocument();
+    expect(queryAllByRole("list").length).toBeGreaterThan(1);
+    expect(queryAllByRole("listitem").length).toBeGreaterThan(1);
   });
 });

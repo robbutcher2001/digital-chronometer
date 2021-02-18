@@ -77,6 +77,7 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -10;
+  animation: fade 1.5s ease;
 }
 
 .overlay.top-right {
@@ -128,6 +129,7 @@ h2 {
   color: var(--deep-grey-colour);
   width: 80vw;
   height: 80vh;
+  animation: fade 200ms ease;
 }
 
 .glass .left {
@@ -185,6 +187,7 @@ h2 {
   height: 84px;
   padding: 2rem 6rem;
   margin: 2rem;
+  z-index: 5;
 }
 
 @media (min-width: 1441px) {
@@ -270,6 +273,15 @@ h2 {
 
   .glass .right .buttons {
     padding: 0 1.5rem 1.5rem;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

@@ -244,6 +244,8 @@ describe("Digital Chronometer", () => {
 
     cy.get("body").type("{e}");
 
+    cy.get('[data-testid="chronometer-edit"]').clear().type("15");
+
     cy.get("form").submit();
 
     cy.get('[data-testid="chronometer-m"]')

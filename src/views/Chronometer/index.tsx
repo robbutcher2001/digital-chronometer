@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent } from "react";
+import { FC, useState, MouseEvent, useEffect } from "react";
 import { StartButton, StopButton } from "../../components/Button";
 import ShareIcon from "../../components/ShareIcon";
 import Tips from "../../components/Tips";
@@ -37,6 +37,32 @@ const Chronometer: FC = () => {
   const startTimer = () => setRunning(true);
 
   const stopTimer = () => setRunning(false);
+
+  useEffect(() => {
+    const handleDocumentKeyDown = (event: Event) => {
+      if (event instanceof KeyboardEvent && event.type === "keydown") {
+        const kbEvent = event as KeyboardEvent;
+        if (kbEvent.code.toLowerCase() === "keye") {
+          if (!editMode) {
+            setEditMode(true);
+            setRunning(false);
+          }
+        } else if (kbEvent.code.toLowerCase() === "space") {
+          if (running) {
+            stopTimer();
+          } else {
+            startTimer();
+          }
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleDocumentKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleDocumentKeyDown);
+    };
+  }, [editMode, running]);
 
   return (
     <>

@@ -168,15 +168,15 @@ describe("Digital Chronometer", () => {
 
     cy.get("form").submit();
 
-    cy.get('[data-testid="chronometer-s"]')
+    cy.get('[data-testid="chronometer-ss"]')
       .should("be.visible")
-      .and("have.text", "1");
+      .and("have.text", "2");
 
     cy.get('[data-testid="stop"]').should("be.disabled");
 
     cy.get('[data-testid="start"]').should("be.enabled").click();
 
-    cy.wait(1000);
+    cy.wait(1200);
 
     cy.get('[data-testid="stop"]').should("be.enabled");
 
@@ -184,13 +184,13 @@ describe("Digital Chronometer", () => {
 
     cy.get('[data-testid="stop"]').click();
 
-    cy.get('[data-testid="chronometer-s"]')
+    cy.get('[data-testid="chronometer-ss"]')
       .should("be.visible")
       .and("have.text", "1");
 
     cy.wait(5000);
 
-    cy.get('[data-testid="chronometer-s"]')
+    cy.get('[data-testid="chronometer-ss"]')
       .should("be.visible")
       .and("have.text", "1");
   });
@@ -235,6 +235,64 @@ describe("Digital Chronometer", () => {
     cy.get('[data-testid="tips"] ul').should("be.exist");
 
     cy.get('[data-testid="tips"] ul li').should("be.exist");
+  });
+
+  it("should enter edit mode when 'e' pressed", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.get("form").submit();
+
+    cy.get("body").type("{e}");
+
+    cy.get("form").submit();
+
+    cy.get('[data-testid="chronometer-m"]')
+      .should("be.visible")
+      .and("have.text", "0");
+
+    cy.get('[data-testid="chronometer-mm"]')
+      .should("be.visible")
+      .and("have.text", "0");
+
+    cy.get('[data-testid="chronometer-div"]')
+      .should("be.visible")
+      .and("have.text", ":");
+
+    cy.get('[data-testid="chronometer-s"]')
+      .should("be.visible")
+      .and("have.text", "1");
+
+    cy.get('[data-testid="chronometer-ss"]')
+      .should("be.visible")
+      .and("have.text", "5");
+  });
+
+  it("should start and be stoppable with space bar", () => {
+    cy.visit("http://localhost:3000");
+
+    cy.get('[data-testid="chronometer-edit"]').clear().type("12");
+
+    cy.get("form").submit();
+
+    cy.get('[data-testid="chronometer-ss"]')
+      .should("be.visible")
+      .and("have.text", "2");
+
+    cy.get("body").type("{ }");
+
+    cy.wait(1200);
+
+    cy.get("body").type("{ }");
+
+    cy.get('[data-testid="chronometer-ss"]')
+      .should("be.visible")
+      .and("have.text", "1");
+
+    cy.wait(5000);
+
+    cy.get('[data-testid="chronometer-ss"]')
+      .should("be.visible")
+      .and("have.text", "1");
   });
 });
 

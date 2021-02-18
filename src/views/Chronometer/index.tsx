@@ -40,6 +40,7 @@ const Chronometer: FC = () => {
 
   return (
     <>
+      <div className="overlay background" />
       <div className="overlay top-right" />
       <div className="overlay middle-right" />
       <div className="overlay middle-left" />

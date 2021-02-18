@@ -69,32 +69,38 @@ h2 {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -10;
-  background-image: url(./time.jpg);
+}
+
+.overlay.background {
+  background-image: url(./time.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(8px) brightness(60%);
+  z-index: -10;
 }
 
 .overlay.top-right {
   clip-path: polygon(100% 0, 60% 0, 100% 50%);
-  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: -5;
 }
 
 .overlay.middle-right {
   clip-path: polygon(60.1% 0, 100% 49.9%, 100% 100%, 88% 100%, 12% 0);
-  opacity: 0.98;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: -5;
 }
 
 .overlay.middle-left {
   clip-path: polygon(0 0, 12.1% 0, 88.1% 100%, 40% 100%, 0 50%);
-  opacity: 0.95;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: -5;
 }
 
 .overlay.bottom-left {
   clip-path: polygon(0 49.9%, 0% 100%, 40.1% 100%);
-  opacity: 0.98;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: -5;
 }
 
 .share-icon {
